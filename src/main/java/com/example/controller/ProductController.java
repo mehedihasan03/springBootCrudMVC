@@ -22,12 +22,12 @@ public class ProductController {
 
 	@Autowired
 	private ProductRepository productRepository;
-	
+
 	@GetMapping("/")
-	public ModelAndView indexpage(){
+	public ModelAndView indexpage() {
 		return new ModelAndView("create_product");
 	}
-	
+
 	@GetMapping("/products")
 	public ModelAndView getProducts() {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -35,22 +35,22 @@ public class ProductController {
 		map.put("productList", productList);
 		return new ModelAndView("product_table", "data", map);
 	}
-	
+
 	@PostMapping("/product_save")
 	public ModelAndView saveProducts(@ModelAttribute Product entity, HttpServletRequest request) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Product product = productRepository.save(entity);
 		map.put("productList", product);
-		return new ModelAndView("create_product" , "data", map);
+		return new ModelAndView("create_product", "data", map);
 	}
-	
+
 	@GetMapping("/delete/{id}")
 	public ModelAndView delete(@PathVariable(value = "id") long id) {
 		Product product = productRepository.findById(id).get();
 		productRepository.delete(product);
 		return new ModelAndView("redirect:/products");
 	}
-	
+
 	@GetMapping("/edit/{id}")
 	public ModelAndView edit_product(@PathVariable(value = "id") long id) {
 		Map<String, Object> map = new HashMap<>();
@@ -58,12 +58,12 @@ public class ProductController {
 		map.put("product", product);
 		return new ModelAndView("edit_products", "data", map);
 	}
-	
+
 	@PostMapping("/update")
 	public ModelAndView updateProducts(@ModelAttribute Product product, HttpServletRequest request) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		product = productRepository.save(product);
 		map.put("productList", product);
-		return new ModelAndView("create_product" , "data", map);
+		return new ModelAndView("create_product", "data", map);
 	}
 }

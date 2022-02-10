@@ -23,33 +23,26 @@
 					<div class="alert alert-danger" role="alert">${data.message}
 					</div>
 				</c:if>
-
 				<c:if test="${data.status.equals('Success')}">
 					<div class="alert alert-success" role="alert">
 						${data.message}</div>
 				</c:if>
-
 				<form action="/product_save" method="post">
 					<div class="mb-3">
 						<label for="name" class="form-label">Product Name</label> <input
-							type="text" class="form-control" name="name"
-							id="name" placeholder="Enter product name">
-
+							type="text" class="form-control" name="name" id="name"
+							placeholder="Enter product name">
 					</div>
-
 					<div class="mb-3">
-						<label for="quantity" class="form-label">Product
-							Quantity</label> <input type="number" class="form-control"
-							name="quantity" id="quantity" placeholder="Enter Quantity">
+						<label for="quantity" class="form-label">Product Quantity</label>
+						<input type="number" class="form-control" name="quantity"
+							id="quantity" placeholder="Enter Quantity">
 					</div>
-
 					<div class="mb-3">
-						<label for="price" class="form-label">Product Price</label>
-						<input type="number" class="form-control" name="price"
-							id="price" placeholder="Enter Price">
+						<label for="price" class="form-label">Product Price</label> <input
+							type="number" class="form-control" name="price" id="price"
+							placeholder="Enter Price">
 					</div>
-
-
 					<div class="mb-3">
 						<label for="remarks" class="form-label">Remarks</label>
 						<textarea name="remarks" class="form-control" id="remarks"
@@ -60,7 +53,6 @@
 				<a href="/products" class="link-secondary">Product List</a>
 			</div>
 		</div>
-
 	</div>
 </body>
 </html>
